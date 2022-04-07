@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en"  th:class="no-outlines" xmlns:th="http://www.thymeleaf.org">
+<head>
+    
+    <meta th:charset="UTF-8">
+    <meta th:http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta th:name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- ==== Document Title ==== -->
+    <title>Dashboard - DAdmin</title>
+    
+    <!-- ==== Document Meta ==== -->
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- ==== Favicon ==== -->
+    <link rel="icon" th:href="@{favicon.png}" type="image/png">
+
+    <!-- ==== Google Font ==== -->
+    <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CMontserrat:400,500}">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" th:href="@{assets/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/fontawesome-all.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/jquery-ui.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/perfect-scrollbar.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/morris.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/select2.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/jquery-jvectormap.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/horizontal-timeline.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/weather-icons.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/dropzone.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/ion.rangeSlider.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/ion.rangeSlider.skinFlat.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/datatables.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/fullcalendar.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/style.css}">
+
+    <!-- Page Level Stylesheets -->
+
+</head>
+<body>
+
+    <!-- Wrapper Start -->
+    <div  th:class="wrapper">
+        <!-- Navbar Start -->
+        <header  th:class="navbar navbar-fixed">
+            <!-- Navbar Header Start -->
+            <div  th:class="navbar--header">
+                <!-- Logo Start -->
+                <a th:href="@{index.html}"  th:class="logo">
+                    <img th:src="@{assets/img/logo.png}" alt="">
+                </a>
+                <!-- Logo End -->
+
+                <!-- Sidebar Toggle Button Start -->
+                <a th:href="@{#}"  th:class="navbar--btn" data-toggle="sidebar" title="Toggle Sidebar">
+                    <i  th:class="fa fa-bars"></i>
+                </a>
+                <!-- Sidebar Toggle Button End -->
+            </div>
+            <!-- Navbar Header End -->
+
+            <!-- Sidebar Toggle Button Start -->
+            <a th:href="@{#}"  th:class="navbar--btn" data-toggle="sidebar" title="Toggle Sidebar">
+                <i  th:class="fa fa-bars"></i>
+            </a>
+            <!-- Sidebar Toggle Button End -->
+
+            <!-- Navbar Search Start -->
+            <div  th:class="navbar--search">
+                <form action="search-results.html}">
+                    <input type="search" name="search"  th:class="form-control" placeholder="Search Something..." required>
+                    <button  th:class="btn-link"><i  th:class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <!-- Navbar Search End -->
+
+            <div  th:class="navbar--nav ml-auto">
+                <ul  th:class="nav">
+                    <li  th:class="nav-item">
+                        <a th:href="@{#}"  th:class="nav-link">
+                            <i  th:class="fa fa-bell"></i>
+                            <span  th:class="badge text-white bg-blue">7</span>
+                        </a>
+                    </li>
+
+                    <li  th:class="nav-item">
+                        <a th:href="@{mailbox_inbox.html}"  th:class="nav-link">
+                            <i  th:class="fa fa-envelope"></i>
+                            <span  th:class="badge text-white bg-blue">4</span>
+                        </a>
+                    </li>
+
+                    <!-- Nav Language Start -->
+                    <li  th:class="nav-item dropdown nav-language">
+                        <a th:href="@{#}"  th:class="nav-link" data-toggle="dropdown">
+                            <img th:src="@{assets/img/flags/us.png}" alt="">
+                            <span>English</span>
+                            <i  th:class="fa fa-angle-down"></i>
+                        </a>
+
+                        <ul  th:class="dropdown-menu">
+                            <li>
+                                <a th:href="">
+                                    <img th:src="@{assets/img/flags/de.png}" alt="">
+                                    <span>German</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="">
+                                    <img th:src="@{assets/img/flags/fr.png}" alt="">
+                                    <span>French</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="">
+                                    <img th:src="@{assets/img/flags/us.png}" th:alt="">
+                                    <span>English</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Nav Language End -->
+
+                    <!-- Nav User Start -->
+                    <li  th:class="nav-item dropdown nav--user online">
+                        <a th:href="@{#}"  th:class="nav-link" data-toggle="dropdown">
+                            <img th:src="@{assets/img/avatars/01_80x80.png}" alt=""  th:class="rounded-circle">
+                            <span>Henry Foster</span>
+                            <i  th:class="fa fa-angle-down"></i>
+                        </a>
+
+                        <ul  th:class="dropdown-menu">
+                            <li><a th:href="@{profile.html}"><i  th:class="far fa-user"></i>Profile</a></li>
+                            <li><a th:href="@{mailbox_inbox.html}"><i  th:class="far fa-envelope"></i>Inbox</a></li>
+                            <li><a th:href="@{#}"><i  th:class="fa fa-cog"></i>Settings</a></li>
+                            <li  th:class="dropdown-divider"></li>
+                            <li><a th:href="@{lock-screen.html}"><i  th:class="fa fa-lock"></i>Lock Screen</a></li>
+                            <li><a th:href="@{#}"><i  th:class="fa fa-power-off"></i>Logout</a></li>
+                        </ul>
+                    </li>
+                    <!-- Nav User End -->
+                </ul>
+            </div>
+        </header>
+        <!-- Navbar End -->
+
+        <!-- Sidebar Start -->
+        <aside  th:class="sidebar" data-trigger="scrollbar">
+            <!-- Sidebar Profile Start -->
+            <div  th:class="sidebar--profile">
+                <div  th:class="profile--img">
+                    <a th:href="@{profile.html}">
+                        <img th:src="@{assets/img/avatars/01_80x80.png}" alt=""  th:class="rounded-circle">
+                    </a>
+                </div>
+
+                <div  th:class="profile--name">
+                    <a th:href="@{profile.html}"  th:class="btn-link">Henry Foster</a>
+                </div>
+
+                <div  th:class="profile--nav">
+                    <ul  th:class="nav">
+                        <li  th:class="nav-item">
+                            <a th:href="@{profile.html}"  th:class="nav-link" title="User Profile">
+                                <i  th:class="fa fa-user"></i>
+                            </a>
+                        </li>
+                        <li  th:class="nav-item">
+                            <a th:href="@{lock-screen.html}"  th:class="nav-link" title="Lock Screen">
+                                <i  th:class="fa fa-lock"></i>
+                            </a>
+                        </li>
+                        <li  th:class="nav-item">
+                            <a th:href="@{mailbox_inbox.html}"  th:class="nav-link" title="Messages">
+                                <i  th:class="fa fa-envelope"></i>
+                            </a>
+                        </li>
+                        <li  th:class="nav-item">
+                            <a th:href="@{#}"  th:class="nav-link" title="Logout">
+                                <i  th:class="fa fa-sign-out-alt"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Sidebar Profile End -->
+
+            <!-- Sidebar Navigation Start -->
+            <div  th:class="sidebar--nav">
+                <ul>
+                    <li>
+                        <ul>
+                            <li>
+                                <a th:href="@{index.html}">
+                                    <i  th:class="fa fa-home"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{#}">
+                                    <i  th:class="fa fa-shopping-cart"></i>
+                                    <span>Ecommerce</span>
+                                </a>
+
+                                <ul>
+                                    <li><a th:href="@{ecommerce.html}">Dashboard</a></li>
+                                    <li><a th:href="@{products.html}">Products</a></li>
+                                    <li><a th:href="@{products-edit.html}">Edit Products</a></li>
+                                    <li><a th:href="@{orders.html}">Orders</a></li>
+                                    <li><a th:href="@{order-view.html}">Order View</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a th:href="@{#}">Layouts</a>
+
+                        <ul>
+                            <li>
+                                <a th:href="@{#}">
+                                    <i  th:class="fa fa-th"></i>
+                                    <span>Page Layouts</span>
+                                </a>
+
+                                <ul>
+                                    <li><a th:href="@{blank.html}">Blank Page</a></li>
+                                    <li><a th:href="@{page-light.html}">Page Light</a></li>
+                                    <li><a th:href="@{sidebar-light.html}">Sidebar Light</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a th:href="@{#}">
+                                    <i  th:class="fa fa-th-list"></i>
+                                    <span>Footers</span>
+                                </a>
+
+                                <ul>
+                                    <li><a th:href="@{footer-light.html}">Footer Light</a></li>
+                                    <li><a th:href="@{footer-dark.html}">Footer Dark</a></li>
+                                    <li><a th:href="@{footer-transparent.html}">Footer Transparent</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a th:href="@{#}">Components</a>
+
+                        <ul>
+                            <li  th:class="active open">
+                                <a th:href="@{#}">
+                                    <i  th:class="far fa-newspaper"></i>
+                                    <span>UI Elements</span>
+                                </a>
+
+                                <ul>
+                                    <li><a th:href="@{buttons.html}">Buttons</a></li>
+                                    <li><a th:href="@{pagination.html}">Pagination</a></li>
+                                    <li><a th:href="@{progress-bars.html}">Progress Bars</a></li>
+                                    <li><a th:href="@{tabs-accordions.html}">Tabs &amp; Accordions</a></li>
+                                    <li><a th:href="@{modals.html}">Modals</a></li>
+                                    <li><a th:href="@{ui-slider.html}">UI Slider</a></li>
+                                    <li><a th:href="@{sweet-alerts.html}">Sweet Alerts</a></li>
+                                    <li  th:class="active"><a th:href="@{timeline.html}">Timeline</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a th:href="@{#}">
+                                    <i  th:class="fab fa-wpforms"></i>
+                                    <span>Form</span>
+                                </a>
+
+                                <ul>
+                                    <li><a th:href="@{form-elements.html}">Form Elements</a></li>
+                                    <li><a th:href="@{form-wizard.html}">Form Wizard</a></li>
+                                    <li><a th:href="@{dropzone.html}">Dropzone</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a th:href="@{#}">Apps and Charts</a>
+
+                        <ul>
+                            <li>
+                                <a th:href="@{#}">
+                                    <i  th:class="far fa-envelope"></i>
+                                    <span>Mailbox</span>
+                                </a>
+
+                                <ul>
+                                    <li><a th:href="@{mailbox_inbox.html}">Inbox</a></li>
+                                    <li><a th:href="@{mailbox_compose.html}">Compose</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a th:href="@{calendar.html}">
+                                    <i  th:class="far fa-calendar-alt"></i>
+                                    <span>Calendar</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{chat.html}">
+                                    <i  th:class="far fa-comments"></i>
+                                    <span>Chat</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{contacts.html}">
+                                    <i  th:class="far fa-address-book"></i>
+                                    <span>Contacts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{notes.html}">
+                                    <i  th:class="far fa-sticky-note"></i>
+                                    <span>Notes</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{todo-list.html}">
+                                    <i  th:class="fa fa-tasks"></i>
+                                    <span>Todo List</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{search-results.html}">
+                                    <i  th:class="fa fa-search"></i>
+                                    <span>Search Results</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a th:href="@{#}">Extra</a>
+
+                        <ul>
+                            <li>
+                                <a th:href="@{#}">
+                                    <i  th:class="fa fa-file"></i>
+                                    <span>Extra Pages</span>
+                                </a>
+
+                                <ul>
+                                    <li><a th:href="@{pricing-tables.html}">Pricing Tables</a></li>
+                                    <li><a th:href="@{profile.html}">Profile</a></li>
+                                    <li><a th:href="@{invoice.html}">Invoice</a></li>
+                                    <li><a th:href="@{login.html}">Login</a></li>
+                                    <li><a th:href="@{register.html}">Register</a></li>
+                                    <li><a th:href="@{forgot-password.html}">Forgot Password</a></li>
+                                    <li><a th:href="@{lock-screen.html}">Lock Screen</a></li>
+                                    <li><a th:href="@{404.html}">404 Error</a></li>
+                                    <li><a th:href="@{500.html}">500 Error</a></li>
+                                    <li><a th:href="@{maintenance.html}">Maintenance</a></li>
+                                    <li><a th:href="@{coming-soon.html}">Coming Soon</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- Sidebar Navigation End -->
+
+            <!-- Sidebar Widgets Start -->
+            <div  th:class="sidebar--widgets">
+                <div  th:class="widget">
+                    <h3  th:class="h6 widget--title">Information Summary</h3>
+
+                    <!-- Summary Widget Start -->
+                    <div  th:class="summary--widget">
+                        <div  th:class="summary--item">
+                            <p  th:class="summary--chart" data-trigger="sparkline" data-type="bar" data-width="5" data-height="38" data-color="#2bb3c0">5,6,7,9,15,5,6,7,9,11,7,9,11,7,9,9,3,2</p>
+
+                            <p  th:class="summary--title">Daily Traffic</p>
+                            <p  th:class="summary--stats">307.512</p>
+                        </div>
+
+                        <div  th:class="summary--item">
+                            <p  th:class="summary--chart" data-trigger="sparkline" data-type="bar" data-width="5" data-height="38" data-color="#e16123">2,3,7,7,9,11,9,7,9,11,9,7,5,4,9,7,5,4</p>
+
+                            <p  th:class="summary--title">Average Usage</p>
+                            <p  th:class="summary--stats">2,371,527</p>
+                        </div>
+
+                        <div  th:class="summary--item">
+                            <p  th:class="summary--chart" data-trigger="sparkline" data-type="bar" data-width="5" data-height="38" data-color="#cccccc">5,6,7,9,15,5,6,7,9,11,7,9,11,7,9,9,3,2</p>
+
+                            <p  th:class="summary--title">Disk Usage</p>
+                            <p  th:class="summary--stats">37.5%</p>
+                        </div>
+
+                        <div  th:class="summary--item">
+                            <p  th:class="summary--chart" data-trigger="sparkline" data-type="bar" data-width="5" data-height="38" data-color="#009378">2,3,7,7,9,11,9,7,9,11,9,7,5,4,9,7,5,4</p>
+
+                            <p  th:class="summary--title">CPU Usage</p>
+                            <p  th:class="summary--stats">37.05-32</p>
+                        </div>
+                        
+                        <div  th:class="summary--item">
+                            <p  th:class="summary--chart" data-trigger="sparkline" data-type="bar" data-width="5" data-height="38" data-color="#ff4040">5,6,7,9,15,5,6,7,9,11,7,9,11,7,9,9,3,2</p>
+
+                            <p  th:class="summary--title">Memory Usage</p>
+                            <p  th:class="summary--stats">37.05%</p>
+                        </div>
+                    </div>
+                    <!-- Summary Widget End -->
+                </div>
+            </div>
+            <!-- Sidebar Widgets End -->
+        </aside>
+        <!-- Sidebar End -->
+
+        <!-- Main Container Start -->
+        <main  th:class="main--container">
+            <!-- Page Header Start -->
+            <section  th:class="page--header">
+                <div  th:class="container-fluid">
+                    <div  th:class="row">
+                        <div  th:class="col-lg-6">
+                            <!-- Page Title Start -->
+                            <h2  th:class="page--title h5">Timeline</h2>
+                            <!-- Page Title End -->
+
+                            <ul  th:class="breadcrumb">
+                                <li  th:class="breadcrumb-item"><a th:href="@{index.html}">Dashboard</a></li>
+                                <li  th:class="breadcrumb-item"><span>UI Elements</span></li>
+                                <li  th:class="breadcrumb-item active"><span>Timeline</span></li>
+                            </ul>
+                        </div>
+
+                        <div  th:class="col-lg-6">
+                            <!-- Summary Widget Start -->
+                            <div  th:class="summary--widget">
+                                <div  th:class="summary--item">
+                                    <p  th:class="summary--chart" data-trigger="sparkline" data-type="bar" data-width="5" data-height="38" data-color="#009378">2,9,7,9,11,9,7,5,7,7,9,11</p>
+
+                                    <p  th:class="summary--title">This Month</p>
+                                    <p  th:class="summary--stats text-green">2,371,527</p>
+                                </div>
+
+                                <div  th:class="summary--item">
+                                    <p  th:class="summary--chart" data-trigger="sparkline" data-type="bar" data-width="5" data-height="38" data-color="#e16123">2,3,7,7,9,11,9,7,9,11,9,7</p>
+
+                                    <p  th:class="summary--title">Last Month</p>
+                                    <p  th:class="summary--stats text-orange">2,527,371</p>
+                                </div>
+                            </div>
+                            <!-- Summary Widget End -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Page Header End -->
+
+            <!-- Main Content Start -->
+            <section  th:class="main--content">
+                <div  th:class="panel">
+                    <div  th:class="panel-heading">
+                        <h3  th:class="panel-title">Timeline</h3>
+                    </div>
+
+                    <div  th:class="panel-content">
+                        <!-- Vertical Timeline Start -->
+                        <div  th:class="vertical-timeline">
+                            <ul  th:class="list-unstyled">
+                                <li  th:class="title">Today</li>
+                                <li>
+                                    <span  th:class="time">3:20 pm</span>
+                                    <span  th:class="dot bg-success"></span>
+                                    <div  th:class="content">
+                                        <h3  th:class="subtitle">Lorem ipsum dolor sit amet</h3>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab earum, aut ut amet sed facere cumque sapiente sint doloribus ullam. Minima animi vitae, incidunt. Molestiae ad libero esse non, odit.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span  th: th:class="time">10/04/2018</span>
+                                    <span  th: th:class="dot bg-info"></span>
+                                    <div  th: th:class="content">
+                                        <h3  th:class="subtitle">Lorem ipsum dolor</h3>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                    </div>
+                                </li>
+                                <li  th:class="title">2017</li>
+                                <li>
+                                    <span  th:class="time">08/04/2017</span>
+                                    <span  th:class="dot bg-success"></span>
+                                    <div  th:class="content">
+                                        <h3  th:class="subtitle">Lorem ipsum dolor sit amet</h3>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores soluta porro fugiat dolore ratione modi, mollitia praesentium architecto.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span  th:class="time">17/03/2017</span>
+                                    <span  th:class="dot bg-info"></span>
+                                    <div  th:class="content">
+                                        <h3  th:class="subtitle">Lorem ipsum dolor</h3>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dolore itaque dicta magni in consequuntur iste aliquid sint, cumque. Dolore molestias harum autem magnam fugit quaerat numquam quisquam beatae labore!</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span  th:class="time">01/02/2017</span>
+                                    <span  th:class="dot bg-danger"></span>
+                                    <div  th:class="content">
+                                        <h3  th:class="subtitle">Lorem ipsum dolor</h3>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span  th:class="time">01/01/2017</span>
+                                    <span  th:class="dot bg-success"></span>
+                                    <div  th:class="content">
+                                        <h3  th:class="subtitle">Lorem ipsum dolor</h3>
+
+                                        <p>Lorem ipsum dolor sit amet.</p>
+                                    </div>
+                                </li>
+                                <li  th:class="title">2016</li>
+                                <li>
+                                    <span  th:class="time">21/04/2016</span>
+                                    <span  th:class="dot bg-info"></span>
+                                    <div  th:class="content">
+                                        <h3  th:class="subtitle">Lorem ipsum dolor</h3>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae expedita earum assumenda quod iure facere, iusto, quas non dicta magnam rem quaerat commodi, eum natus molestias unde voluptates sequi debitis!</p>
+                                    </div>
+                                </li>
+                                <li  th:class="action">
+                                    <a th:href="@{#}"  th:class="btn btn-info">More Timeline</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Vertical Timeline End -->
+                    </div>
+                </div>
+            </section>
+            <!-- Main Content End -->
+
+            <!-- Main Footer Start -->
+            <footer  th:class="main--footer main--footer-light">
+                <p>Copyright &copy; <a th:href="@{#}">DAdmin</a>. All Rights Reserved.</p>
+            </footer>
+            <!-- Main Footer End -->
+        </main>
+        <!-- Main Container End -->
+    </div>
+    <!-- Wrapper End -->
+
+    <!-- Scripts -->
+    <script th:src="@{assets/js/jquery.min.js}"></script>
+    <script th:src="@{assets/js/jquery-ui.min.js}"></script>
+    <script th:src="@{assets/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{assets/js/perfect-scrollbar.min.js}"></script>
+    <script th:src="@{assets/js/jquery.sparkline.min.js}"></script>
+    <script th:src="@{assets/js/raphael.min.js}"></script>
+    <script th:src="@{assets/js/morris.min.js}"></script>
+    <script th:src="@{assets/js/select2.min.js}"></script>
+    <script th:src="@{assets/js/jquery-jvectormap.min.js}"></script>
+    <script th:src="@{assets/js/jquery-jvectormap-world-mill.min.js}"></script>
+    <script th:src="@{assets/js/horizontal-timeline.min.js}"></script>
+    <script th:src="@{assets/js/jquery.validate.min.js}"></script>
+    <script th:src="@{assets/js/jquery.steps.min.js}"></script>
+    <script th:src="@{assets/js/dropzone.min.js}"></script>
+    <script th:src="@{assets/js/ion.rangeSlider.min.js}"></script>
+    <script th:src="@{assets/js/datatables.min.js}"></script>
+    <script th:src="@{assets/js/main.js}"></script>
+
+    <!-- Page Level Scripts -->
+
+</body>
+</html>
